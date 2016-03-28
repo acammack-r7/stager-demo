@@ -5,8 +5,8 @@ To run (requires Linux):
   * `git clone`
   * `git submodule init`
   * `git submodule update`
-  * `make`
-  * `./loader test.bin test`
+  * `make` (or `make all32` for 32-bit binaries)
+  * `./loader test.bin test` (or the 32-bit variants)
   * You should see `Hello, world!`
 
 

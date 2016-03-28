@@ -1,5 +1,8 @@
 musl
 elf2bin
+elf2bin32
 test
 test.bin
+test32.bin
 loader
+loader32
