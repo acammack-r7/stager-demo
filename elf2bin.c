@@ -48,12 +48,12 @@ int main(int argc, char **argv)
 
 	close(fd);
 
-	mapping = mmap(NULL, 0x209000, PROT_READ|PROT_WRITE|PROT_EXEC, MAP_ANONYMOUS|MAP_PRIVATE, -1, 0);
+	mapping = mmap(NULL, 0x1000000, PROT_READ|PROT_WRITE|PROT_EXEC, MAP_ANONYMOUS|MAP_PRIVATE, -1, 0);
 	if(mapping == MAP_FAILED) {
 		printf("Failed to mmap(): %s\n", strerror(errno));
 		exit(EXIT_FAILURE);
 	}
-  memset(mapping, 0, 0x209000);
+  	memset(mapping, 0, 0x1000000);
 
 	ehdr = (Elf64_Ehdr *)data;
 	phdr = (Elf64_Phdr *)(data + ehdr->e_phoff);

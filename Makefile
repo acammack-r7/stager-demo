@@ -10,16 +10,16 @@ test: musl test.c
 	./musl/bin/musl-gcc -o test musl/lib/rcrt1.o test.c $(CFLAGS) $(LDFLAGS)
 
 loader: musl loader.c
-	./musl/bin/musl-gcc -o loader loader.c $(CFLAGS)
+	./musl/bin/musl-gcc -g -o loader loader.c $(CFLAGS)
 
 elf2bin: musl elf2bin.c
-	./musl/bin/musl-gcc -o elf2bin elf2bin.c $(CFLAGS)
+	./musl/bin/musl-gcc -g -o elf2bin elf2bin.c $(CFLAGS)
 
 musl: deps/musl/config.mak
 	$(MAKE) -C deps/musl install
 
 deps/musl/config.mak:
-	pushd deps/musl && CFLAGS="-fPIE" ./configure --prefix="`realpath ../../musl`" && popd
+	cd deps/musl && CFLAGS="-fPIE" ./configure --prefix="`realpath ../../musl`"
 
 clean: clean-test
 

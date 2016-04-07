@@ -6,7 +6,7 @@ To run (requires Linux):
   * `git submodule init`
   * `git submodule update`
   * `make`
-  * `./loader`
+  * `./loader test.bin test`
   * You should see `Hello, world!`
 
 
